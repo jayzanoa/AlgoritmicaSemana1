@@ -23,6 +23,10 @@ CALCULAR PROMEDIOS
 ------------------
 https://www.programiz.com/online-compiler/2Cg2fqqIOpKMR
 
+Pseudocodigo:
+![2](https://github.com/user-attachments/assets/be823f62-3e4f-48f5-833c-b11a1c052cd1)
+
+
 SUMAR NUMEROS
 -------------
 https://www.programiz.com/online-compiler/4zEVG9LYE2z52
