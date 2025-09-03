@@ -29,7 +29,7 @@ Pseudocodigo:
 
 SUMAR NUMEROS
 -------------
-https://www.programiz.com/online-compiler/4zEVG9LYE2z52
+https://www.programiz.com/online-compiler/68MHLsyHzD8NP
 ![1](https://github.com/user-attachments/assets/7e879004-dc93-4391-ada5-e8d1e772444d)
 
 Pseudocodigo:
