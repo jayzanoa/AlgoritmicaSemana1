@@ -18,3 +18,11 @@ a =
 ans =
 
     1.4142
+
+CALCULAR PROMEDIOS
+------------------
+https://www.programiz.com/online-compiler/2Cg2fqqIOpKMR
+
+SUMAR NUMEROS
+-------------
+https://www.programiz.com/online-compiler/4zEVG9LYE2z52
