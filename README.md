@@ -34,3 +34,43 @@ https://www.programiz.com/online-compiler/68MHLsyHzD8NP
 
 Pseudocodigo:
 
+---------------------------------------------------------------------------------------------------
+
+SEMANA 03 - ED
+--------------
+- Abrir cmd, poner javac (para compilar)
+- <hr> (linea)
+- <br> (Salto de linea)
+-  alt + 60 = <
+-  alt + 62 = >
+
+
+Programacion en javascript
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
