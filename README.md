@@ -47,6 +47,16 @@ SEMANA 03 - ED
 
 Programacion en javascript
 
+EJERCICIOS CON FIGURAS MMF - SEMANA 11
+---------------------------------------
+- Ejercicio 4 (figura 1)
+- Ejercicio 5 (figura 2.a)
+- Ejercicio 7 (figura 2.b)
+- Ejercicio 9 (figura 3.a)
+- Ejercicio 10 (figura 3.b)
+- Ejercicio 16 (figura 4.b)
+- Ejercicio 24 (figura 6.b)
+
 
 
 
