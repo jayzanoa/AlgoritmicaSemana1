@@ -57,6 +57,12 @@ EJERCICIOS CON FIGURAS MMF - SEMANA 11
 - Ejercicio 16 (figura 4.b)
 - Ejercicio 24 (figura 6.b)
 
+ED - PRACTICA - SEMANA 12
+-------------------------
+- Para pizarra :
+  https://excalidraw.com/
+  
+
 
 
 
