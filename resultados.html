@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Comparación de Algoritmos de Ordenamiento</title>
+<script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+<style>
+body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
+.container { max-width: 1400px; margin: 0 auto; background-color: white; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+table { border-collapse: collapse; width: 100%; margin: 20px 0; background-color: #fff9e6; }
+th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+th { background-color: #cccccc; color: black; font-weight: bold; }
+.chart-container { margin: 30px 0; padding: 20px; background-color: #f8f9fa; border-radius: 8px; }
+.chart-wrapper { background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+canvas { width: 100% !important; height: 400px !important; }
+.note { background: #fff3cd; padding: 10px; border-radius: 5px; margin: 20px 0; }
+</style>
+</head>
+<body>
+<div class='container'>
+<h1>Comparación de Algoritmos de Ordenamiento</h1>
+<h2>Tabla de Tiempos de Ejecución (microsegundos)</h2>
+<table>
+<tr><th>Algoritmo</th>
+<th>1000</th>
+<th>5000</th>
+<th>10000</th>
+<th>50000</th>
+<th>100000</th>
+<th>500000</th>
+<th>1000000</th>
+</tr>
+<tr>
+<td><strong>Burbuja</strong></td>
+<td >2707.70</td>
+<td >12454.10</td>
+<td >52115.70</td>
+<td style='font-style: italic; opacity: 0.8;'>1706670.86</td>
+<td style='font-style: italic; opacity: 0.8;'>6613354.74</td>
+<td style='font-style: italic; opacity: 0.8;'>167272857.09</td>
+<td style='font-style: italic; opacity: 0.8;'>586961478.30</td>
+</tr>
+<tr>
+<td><strong>Seleccion</strong></td>
+<td >1250.00</td>
+<td >9273.50</td>
+<td >39109.60</td>
+<td style='font-style: italic; opacity: 0.8;'>1085280.27</td>
+<td style='font-style: italic; opacity: 0.8;'>4432618.96</td>
+<td style='font-style: italic; opacity: 0.8;'>105124701.79</td>
+<td style='font-style: italic; opacity: 0.8;'>409710172.24</td>
+</tr>
+<tr>
+<td><strong>Insercion</strong></td>
+<td >1300.30</td>
+<td >4195.50</td>
+<td >16958.80</td>
+<td style='font-style: italic; opacity: 0.8;'>425323.16</td>
+<td style='font-style: italic; opacity: 0.8;'>1619311.24</td>
+<td style='font-style: italic; opacity: 0.8;'>44364338.08</td>
+<td style='font-style: italic; opacity: 0.8;'>169655211.50</td>
+</tr>
+<tr>
+<td><strong>Shell</strong></td>
+<td >368.30</td>
+<td >1413.20</td>
+<td >1093.90</td>
+<td >6204.30</td>
+<td >11863.10</td>
+<td style='font-style: italic; opacity: 0.8;'>176798.00</td>
+<td style='font-style: italic; opacity: 0.8;'>523218.26</td>
+</tr>
+<tr>
+<td><strong>Quick Sort</strong></td>
+<td >293.30</td>
+<td >247.80</td>
+<td >492.20</td>
+<td >2858.10</td>
+<td >5861.90</td>
+<td style='font-style: italic; opacity: 0.8;'>34690.38</td>
+<td style='font-style: italic; opacity: 0.8;'>80062.39</td>
+</tr>
+</table>
+<h2>Gráficos de Comparación</h2>
+<div class='chart-container'>
+<h3>Comparación General de Todos los Algoritmos</h3>
+<div class='chart-wrapper'>
+<canvas id='chartGeneral'></canvas>
+</div>
+</div>
+<div class='chart-container'>
+<h3>Algoritmos O(n²) - Burbuja, Selección, Inserción</h3>
+<div class='chart-wrapper'>
+<canvas id='chartN2'></canvas>
+</div>
+</div>
+<div class='chart-container'>
+<h3>Algoritmos Eficientes - Shell Sort y Quick Sort</h3>
+<div class='chart-wrapper'>
+<canvas id='chartEficientes'></canvas>
+</div>
+</div>
+<script>
+// Datos
+const tamanos = [1000, 5000, 10000, 50000, 100000, 500000, 1000000];
+const resultados = [
+  [2707.7, 12454.1, 52115.7, 1706670.8589295608, 6613354.73553722, 1.6727285708953187E8, 5.869614782982107E8],
+  [1250.0, 9273.5, 39109.6, 1085280.2732472315, 4432618.962077219, 1.0512470179007083E8, 4.097101722369522E8],
+  [1300.3, 4195.5, 16958.8, 425323.15764100564, 1619311.243205133, 4.436433808141206E7, 1.6965521149742818E8],
+  [368.3, 1413.2, 1093.9, 6204.3, 11863.1, 176798.0009164643, 523218.25513772236],
+  [293.3, 247.8, 492.2, 2858.1, 5861.9, 34690.37769144768, 80062.39488088583],
+];
+// Función para inicializar gráficos
+function initCharts() {
+console.log('Inicializando gráficos...');
+
+// Gráfico 1: Todos los algoritmos
+const ctx1 = document.getElementById('chartGeneral');
+if (ctx1) {
+new Chart(ctx1, {
+type: 'line',
+data: {
+labels: tamanos,
+datasets: [
+{ label: 'Burbuja', data: resultados[0], borderColor: '#ff6384', backgroundColor: 'rgba(255, 99, 132, 0.1)', borderWidth: 2 },
+{ label: 'Seleccion', data: resultados[1], borderColor: '#ff9f40', backgroundColor: 'rgba(255, 159, 64, 0.1)', borderWidth: 2 },
+{ label: 'Insercion', data: resultados[2], borderColor: '#4bc0c0', backgroundColor: 'rgba(75, 192, 192, 0.1)', borderWidth: 2 },
+{ label: 'Shell', data: resultados[3], borderColor: '#36a2eb', backgroundColor: 'rgba(54, 162, 235, 0.1)', borderWidth: 2 },
+{ label: 'Quick Sort', data: resultados[4], borderColor: '#9966ff', backgroundColor: 'rgba(153, 102, 255, 0.1)', borderWidth: 2 }
+]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+scales: {
+y: { 
+type: 'logarithmic',
+title: { display: true, text: 'Tiempo (μs - escala logarítmica)' }
+}
+}
+}
+});
+}
+
+// Gráfico 2: Algoritmos O(n²)
+const ctx2 = document.getElementById('chartN2');
+if (ctx2) {
+new Chart(ctx2, {
+type: 'bar',
+data: {
+labels: tamanos,
+datasets: [
+{ label: 'Burbuja', data: resultados[0], backgroundColor: '#ff6384' },
+{ label: 'Seleccion', data: resultados[1], backgroundColor: '#ff9f40' },
+{ label: 'Insercion', data: resultados[2], backgroundColor: '#4bc0c0' }
+]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+scales: { 
+y: { 
+type: 'logarithmic',
+title: { display: true, text: 'Tiempo (μs - escala log)' }
+}
+}
+}
+});
+}
+
+// Gráfico 3: Algoritmos eficientes
+const ctx3 = document.getElementById('chartEficientes');
+if (ctx3) {
+new Chart(ctx3, {
+type: 'line',
+data: {
+labels: tamanos,
+datasets: [
+{ label: 'Shell', data: resultados[3], borderColor: '#36a2eb', backgroundColor: 'rgba(54, 162, 235, 0.2)', borderWidth: 3, fill: true },
+{ label: 'Quick Sort', data: resultados[4], borderColor: '#9966ff', backgroundColor: 'rgba(153, 102, 255, 0.2)', borderWidth: 3, fill: true }
+]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+scales: { 
+y: { 
+type: 'logarithmic',
+title: { display: true, text: 'Tiempo (μs - escala log)' }
+}
+}
+}
+});
+}
+}
+
+// Inicializar cuando el DOM esté listo
+if (document.readyState === 'loading') {
+document.addEventListener('DOMContentLoaded', initCharts);
+} else {
+initCharts();
+}
+</script>
+<div class='note'>
+<p><strong>Nota:</strong> Tiempos en microsegundos. Valores en cursiva son aproximaciones basadas en complejidad algorítmica.</p>
+<p>Los gráficos usan escala logarítmica para mejor visualización de los grandes rangos de datos.</p>
+</div>
+</div>
+</body>
+</html>
