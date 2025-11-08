@@ -61,6 +61,29 @@ ED - PRACTICA - SEMANA 12
 -------------------------
 - Para pizarra :
   https://excalidraw.com/
+
+
+
+  Tabla resumen: Ejercicios con figura asociada
+
+Ejercicio	Figura	Descripción
+4	Figura 1	Líneas equipotenciales en rejilla cuadriculada
+5a	Figura 2a	Barra cargada sobre eje x, punto P en eje y
+7	Figura 2b	Varilla con densidad de carga no uniforme λ = αx
+9	Figura 3a	Varilla doblada en semicírculo
+10	Figura 3b	Alambre doblado con densidad λ
+15	Figura 4a	Generador Van de Graaff
+16	Figura 4b	Tubo Geiger-Mueller (cilindro y alambre coaxial)
+17	Figura 5	Precipitador electrostático
+24	Figura 6b	Placas paralelas con esfera conductora colgante
+26a	Figura 7a	Cubierta cilíndrica cargada
+30	Figura 7b	Cuatro esferas formando cuadrado
+31	Figura 8a	Anillo cargado con partícula en centro
+32	Figura 8b	Varilla delgada con carga uniforme
+33	Figura 9a	Dipolo eléctrico a lo largo del eje y
+35	Figura 9b	Disco con densidad de carga no uniforme
+36	Figura 10	Filamento cargado a lo largo del eje x
+40	Figura 11	Tres láminas no conductoras infinitas
   
 
 
